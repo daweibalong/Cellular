@@ -10,12 +10,12 @@
 #include "lauxlib.h"
 
 typedef enum {
-	BOX_INI = 1 << 0,	/* 环境加载完毕 */
-	BOX_RED = 1 << 1,	/* 任务准备就绪 */
-	BOX_RUN = 1 << 2,	/* 任务正在运行 */
-	BOX_SUS = 1 << 3,	/* 任务已被挂起 */
-	BOX_ERR = 1 << 4,	/* 异        常 */
-	BOX_NUL = 1 << 5,	/* 未 初  始 化 */
+	BOX_INI = 1 << 0,    /* 环境加载完毕 */
+	BOX_RED = 1 << 1,    /* 任务准备就绪 */
+	BOX_RUN = 1 << 2,    /* 任务正在运行 */
+	BOX_SUS = 1 << 3,    /* 任务已被挂起 */
+	BOX_ERR = 1 << 4,    /* 异       常 */
+	BOX_NUL = 1 << 5,    /* 未 初 始 化 */
 } BoxStat;
 
 typedef struct {

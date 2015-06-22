@@ -12,7 +12,8 @@ is_full(TaskQueue q)
 	return q->size == q->capacity;
 }
 
-TaskQueue create_queue()
+TaskQueue 
+create_queue()
 {
 	TaskQueue q;
 	q = (TaskQueue)malloc(sizeof(struct _task_queue));
@@ -29,14 +30,16 @@ TaskQueue create_queue()
 	return q;
 }
 
-void make_empty(TaskQueue q)
+void 
+make_empty(TaskQueue q)
 {
 	q->rear = 0;
 	q->front = 1;
 	q->size = 0;
 }
 
-void enqueue(TaskQueue q, Task *task)
+void 
+enqueue(TaskQueue q, Task *task)
 {
 	if (!is_full(q)) {
 		q->rear = (q->rear + 1) % q->capacity;

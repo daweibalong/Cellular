@@ -63,11 +63,13 @@ box_init(lua_State *L)
 void 
 box_loadfile(Box *box, const char *file_name)
 {
-	if (box == NULL || box->coroutine == NULL)
+	if (box == NULL || box->coroutine == NULL) {
 		return;
+	}
 
-	if (box->stat != BOX_INI)
+	if (box->stat != BOX_INI) {
 		return;
+	}
 
 	luaL_loadfile(box->coroutine, file_name);
 
@@ -102,13 +104,12 @@ box_loadfile(Box *box, const char *file_name)
 void
 box_spawn(Box *box, const char *func_name)
 {
-	if (box == NULL)
+	if (box == NULL) {
 		return;
-
+	}
 	switch (box->stat) {
 		case BOX_INI:
 			printf("box [%d] %s start:\n", box->id, func_name);
-
 			/* 将环境表放到栈顶 */
 			lua_rawgeti(box->coroutine, LUA_REGISTRYINDEX, box->env_ref);
 
@@ -138,9 +139,9 @@ box_spawn(Box *box, const char *func_name)
 void 
 box_run(Box *box)
 {
-	if (box == NULL)
+	if (box == NULL) {
 		return;
-
+	}
 	if (box->stat != BOX_RED && box->stat != BOX_SUS) {
 		printf("box [%d] is not ready for run\n", box->id);
 		return;
