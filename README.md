@@ -14,4 +14,3 @@
 cd Cellular && make
 ./testcase
 ```
-``````
